@@ -20,7 +20,7 @@ try {
   const cvrg = core.getInput('cov');
   let  covr = cvrg.toLocaleLowerCase().trim();
   if(covr=="codecov"){
-	covr="codecov/codecov-action@v1";
+	covr="codecov";
   }else if(covr=="coverlet"){
 	covr="Hello coverlet";
   }
