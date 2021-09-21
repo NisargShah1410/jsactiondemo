@@ -10,18 +10,10 @@ inputs:
     description: 'If the build command needs any path to a solution'
     required: false
     default: 'none'
-  cov:
-    description: 'Select codecov or coverlet'
-    required: false
-    
   
 outputs:
   startupcmd:
     description: 'startup command'
-  coveragetest:
-    description: 'Code coverage test command'
-
-  
 runs:
   using: 'node12'
   main: 'index.js'
