@@ -17,9 +17,20 @@ try {
       choosenlang=`dotnet build ${filepath} --configuration Release`;
   }
   
+  const cvrg = core.getInput('cov');
+  let  covr = cvrg.toLocaleLowerCase().trim();
+  if(covr=="codecov"){
+	covr="codecov/codecov-action@v1";
+  }else if(covr=="coverlet"){
+	covr="Hello coverlet";
+  }
+	
   console.log(`HERE IS THE COMMAND - ${choosenlang}!`);
-
+  
   core.setOutput("startupcmd", choosenlang);
+
+  core.setOutput("coveragetest", covr);
+
   // const time = (new Date()).toTimeString();
  // core.setOutput("time", time);
   // Get the JSON webhook payload for the event that triggered the workflow
