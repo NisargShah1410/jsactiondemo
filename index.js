@@ -24,12 +24,17 @@ try {
   }else if(covr=="coverlet"){
 	covr="Hello coverlet";
   }
-	
+  
+  const fp = core.getInput('file-path');
+  let fpath = fp;
+
   console.log(`HERE IS THE COMMAND - ${choosenlang}!`);
   
   core.setOutput("startupcmd", choosenlang);
 
   core.setOutput("coveragetest", covr);
+	
+  core.setOutput("filep", fpath);
 
   // const time = (new Date()).toTimeString();
  // core.setOutput("time", time);
