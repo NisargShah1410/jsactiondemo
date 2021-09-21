@@ -13,13 +13,18 @@ inputs:
   cov:
     description: 'Select codecov or coverlet'
     required: false
+  file-path:
+    description: 'Use this when using codecov to give path'
+    required: false
     
   
 outputs:
   startupcmd:
     description: 'startup command'
   coveragetest:
-    description: Code coverage test command'
+    description: 'Code coverage test command'
+  filep:
+    description: 'Use this when using codecov to give path'
 
   
 runs:
