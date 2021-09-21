@@ -22,7 +22,7 @@ try {
   if(cov=="codecov"){
 	cov="codecov/codecov-action@v1"
   }else if(cov=="coverlet"){
-	cov="echo"
+	cov="Hello coverlet"
   }
 	
   console.log(`HERE IS THE COMMAND - ${choosenlang}!`);
