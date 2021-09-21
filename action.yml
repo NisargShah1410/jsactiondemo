@@ -1,0 +1,19 @@
+name: Startup Command
+author: Saurabhrai
+description: 'Gives the startup command according to the language'
+
+inputs:
+  language:
+    description: 'Language used'
+    required: true
+  path:
+    description: 'If the build command needs any path to a solution'
+    required: false
+    default: 'none'
+  
+outputs:
+  startupcmd:
+    description: 'startup command'
+runs:
+  using: 'node12'
+  main: 'index.js'
