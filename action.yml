@@ -13,6 +13,9 @@ inputs:
   cov:
     description: 'Select codecov or coverlet'
     required: false
+  file-path:
+    description: 'Use this when using codecov to give path'
+    required: false
     
   
 outputs:
