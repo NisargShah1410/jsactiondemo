@@ -18,23 +18,17 @@ try {
   }
   
   const cvrg = core.getInput('cov');
-  let  covr = cvrg.toLocaleLowerCase().trim();
-  if(covr=="codecov"){
-	covr="codecov/codecov-action@v1";
-  }else if(covr=="coverlet"){
-	covr="Hello coverlet";
-  }
-  
-  const fp = core.getInput('file-path');
-  let fpath = fp;
-
+  let  cov = cvrg.toLocaleLowerCase().trim();
+  if(cov=="codecov"){
+	cov="codecov/codecov-action@v1"
+  }else if(cov=="coverlet"){
+	cov="echo "coverlet action""
+	
   console.log(`HERE IS THE COMMAND - ${choosenlang}!`);
   
   core.setOutput("startupcmd", choosenlang);
 
-  core.setOutput("coveragetest", covr);
-	
-  core.setOutput("filep", fpath);
+  core.setOutput("coveragetest", cov);
 
   // const time = (new Date()).toTimeString();
  // core.setOutput("time", time);
