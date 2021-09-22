@@ -20,13 +20,15 @@ try {
   const cvrg = core.getInput('cov');
   let  covr = cvrg.toLocaleLowerCase().trim();
   if(covr=="codecov"){
-	covr="codecov/codecov-action@v1";
+	covr="codecov";
   }else if(covr=="coverlet"){
-	covr="Hello coverlet";
+	covr="coverlet";
   }
   
   const fp = core.getInput('file-path');
   let fpath = fp;
+	
+  let covsett = "/p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov";
 
   console.log(`HERE IS THE COMMAND - ${choosenlang}!`);
   
@@ -35,6 +37,9 @@ try {
   core.setOutput("coveragetest", covr);
 	
   core.setOutput("filep", fpath);
+
+  core.setOutput("coverlet-settings", covsett);
+  
 
   // const time = (new Date()).toTimeString();
  // core.setOutput("time", time);
