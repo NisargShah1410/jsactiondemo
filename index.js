@@ -27,6 +27,8 @@ try {
   
   const fp = core.getInput('file-path');
   let fpath = fp;
+	
+  let covsett = "/p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov"
 
   console.log(`HERE IS THE COMMAND - ${choosenlang}!`);
   
@@ -35,6 +37,9 @@ try {
   core.setOutput("coveragetest", covr);
 	
   core.setOutput("filep", fpath);
+
+  core.setOutput("coverlet-settings", covsett);
+  
 
   // const time = (new Date()).toTimeString();
  // core.setOutput("time", time);
