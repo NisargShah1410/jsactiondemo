@@ -22,7 +22,7 @@ try {
   if(covr=="codecov"){
 	covr="codecov/codecov-action@v1";
   }else if(covr=="coverlet"){
-	covr="Hello coverlet";
+	covr="coverlet";
   }
   
   const fp = core.getInput('file-path');
