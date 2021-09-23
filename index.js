@@ -20,15 +20,15 @@ try {
   const cvrg = core.getInput('cov');
   let  covr = cvrg.toLocaleLowerCase().trim();
   if(covr=="codecov"){
-	covr="codecov";
+	covr="ng test --code-coverage";
   }else if(covr=="coverlet"){
-	covr="coverlet";
+	covr="dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov";
   }
   
-  const fp = core.getInput('file-path');
-  let fpath = fp;
+  //const fp = core.getInput('file-path');
+  //let fpath = fp;
 	
-  let covsett = "/p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov";
+  //let covsett = "/p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov";
 
   console.log(`HERE IS THE COMMAND - ${choosenlang}!`);
   
@@ -36,9 +36,9 @@ try {
 
   core.setOutput("coveragetest", covr);
 	
-  core.setOutput("filep", fpath);
+  //core.setOutput("filep", fpath);
 
-  core.setOutput("coverlet-settings", covsett);
+  //core.setOutput("coverlet-settings", covsett);
   
 
   // const time = (new Date()).toTimeString();
