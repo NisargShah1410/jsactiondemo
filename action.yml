@@ -23,10 +23,10 @@ outputs:
     description: 'startup command'
   coveragetest:
     description: 'Code coverage test command'
-  #filep:
-   # description: 'Use this when using codecov to give path'
-  #coverlet-settings:
-   # description: 'Coverlet run setting required for code coverage'
+  filep:
+    description: 'Use this when using codecov to give path'
+  coverlet-settings:
+    description: 'Coverlet run setting required for code coverage'
 
   
 runs:
