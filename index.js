@@ -20,7 +20,7 @@ try {
   const cvrg = core.getInput('cov');
   let  covr = cvrg.toLocaleLowerCase().trim();
   if(covr=="codecov"){
-	covr="npm install -g @angular/cli && ng test --code-coverage";
+	covr="ng test --code-coverage";
   }else if(covr=="coverlet"){
 	covr="dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov";
   }
