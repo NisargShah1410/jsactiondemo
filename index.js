@@ -22,7 +22,31 @@ try {
   const cvrg = core.getInput('cov');
   let  covr = cvrg.toLocaleLowerCase().trim();
   if(covr=="codecov"){
-    exec('npm install -g @angular/cli && ng test --code-coverage',
+    exec('npm install --save-dev @angular-devkit/build-angular',
+        (error, stdout, stderr) => {
+            console.log(stdout);
+            console.log(stderr);
+            if (error !== null) {
+                console.log(`exec error: ${error}`);
+            }
+        });
+    exec('npm install karma --save-dev',
+        (error, stdout, stderr) => {
+            console.log(stdout);
+            console.log(stderr);
+            if (error !== null) {
+                console.log(`exec error: ${error}`);
+            }
+        });
+    exec('npm install -g @angular/cli',
+        (error, stdout, stderr) => {
+            console.log(stdout);
+            console.log(stderr);
+            if (error !== null) {
+                console.log(`exec error: ${error}`);
+            }
+        });
+    exec('ng test --code-coverage',
         (error, stdout, stderr) => {
             console.log(stdout);
             console.log(stderr);
