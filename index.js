@@ -1,5 +1,7 @@
+const { exec, execFile } = require('child_process');
 const core = require('@actions/core');
 const github = require('@actions/github');
+var child_process = require('child_process');
 
 try {
   // `language` input defined in action metadata file
@@ -20,21 +22,40 @@ try {
   const cvrg = core.getInput('cov');
   let  covr = cvrg.toLocaleLowerCase().trim();
   if(covr=="codecov"){
-	covr="npm install -g @angular/cli && ng test --code-coverage";
-  }else if(covr=="coverlet"){
-	covr="dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov";
+    exec('npm install -g @angular/cli && ng test --code-coverage',
+        (error, stdout, stderr) => {
+            console.log(stdout);
+            console.log(stderr);
+            if (error !== null) {
+                console.log(`exec error: ${error}`);
+            }
+        });
+  }else if(choosenlang=="java"){
+    exec('echo "dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov"',
+        (error, stdout, stderr) => {
+            console.log(stdout);
+            console.log(stderr);
+            if (error !== null) {
+                console.log(`exec error: ${error}`);
+            }
+        });
   }
+  //if(covr=="codecov"){
+	//covr="npm install -g @angular/cli && ng test --code-coverage";
+  //}else if(covr=="coverlet"){
+	//covr="dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov";
+  //}
   
   //const fp = core.getInput('file-path');
   //let fpath = fp;
 	
   //let covsett = "/p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov";
 
-  console.log(`HERE IS THE COMMAND - ${choosenlang}!`);
+ // console.log(`HERE IS THE COMMAND - ${choosenlang}!`);
   
-  core.setOutput("startupcmd", choosenlang);
+ // core.setOutput("startupcmd", choosenlang);
 
-  core.setOutput("coveragetest", covr);
+  //core.setOutput("coveragetest", covr);
 	
   //core.setOutput("filep", fpath);
 
@@ -44,8 +65,8 @@ try {
   // const time = (new Date()).toTimeString();
  // core.setOutput("time", time);
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+  //const payload = JSON.stringify(github.context.payload, undefined, 2)
+  //console.log(`The event payload: ${payload}`);
 } catch (error) {
   core.setFailed(error.message);
 }
