@@ -30,7 +30,7 @@ try {
                 console.log(`exec error: ${error}`);
             }
         });
-  }else if(choosenlang=="java"){
+  }else if(covr=="coverlet"){
     exec('echo "dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov"',
         (error, stdout, stderr) => {
             console.log(stdout);
