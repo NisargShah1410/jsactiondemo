@@ -30,6 +30,15 @@ try {
                 console.log(`exec error: ${error}`);
             }
         });
+  }else if(covr=="coverlet"){
+    exec('echo "dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov"',
+        (error, stdout, stderr) => {
+            console.log(stdout);
+            console.log(stderr);
+            if (error !== null) {
+                console.log(`exec error: ${error}`);
+            }
+        });
   }
   //if(covr=="codecov"){
 	//covr="npm install -g @angular/cli && ng test --code-coverage";
