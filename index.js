@@ -48,7 +48,7 @@ try {
         });
   }
   if(covr=="codecov"){
-    exec('ng test --code-coverage',
+    exec('npm test --code-coverage',
         (error, stdout, stderr) => {
             console.log(stdout);
             console.log(stderr);
