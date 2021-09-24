@@ -22,42 +22,7 @@ try {
   const cvrg = core.getInput('cov');
   let  covr = cvrg.toLocaleLowerCase().trim();
   if(covr=="codecov"){
-    exec('npm install --save-dev @angular-devkit/build-angular',
-        (error, stdout, stderr) => {
-            console.log(stdout);
-            console.log(stderr);
-            if (error !== null) {
-                console.log(`exec error: ${error}`);
-            }
-        });
-    exec('npm install karma --save-dev',
-        (error, stdout, stderr) => {
-            console.log(stdout);
-            console.log(stderr);
-            if (error !== null) {
-                console.log(`exec error: ${error}`);
-            }
-        });
-    exec('npm install -g @angular/cli',
-        (error, stdout, stderr) => {
-            console.log(stdout);
-            console.log(stderr);
-            if (error !== null) {
-                console.log(`exec error: ${error}`);
-            }
-        });
-  }
-  if(covr=="codecov"){
-    exec('npm test --code-coverage',
-        (error, stdout, stderr) => {
-            console.log(stdout);
-            console.log(stderr);
-            if (error !== null) {
-                console.log(`exec error: ${error}`);
-            }
-        });
-  }else if(covr=="coverlet"){
-    exec('echo "dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov"',
+    exec('npm install --save-dev @angular-devkit/build-angular && npm install karma --save-dev && npm install -g @angular/cli && ng test --code-coverage ',
         (error, stdout, stderr) => {
             console.log(stdout);
             console.log(stderr);
