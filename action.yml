@@ -19,6 +19,13 @@ inputs:
   sonarqube-required:
     description: 'Give input yes or no for use of Sonarqube required or not'
     required: false
+  SONAR_TOKEN:
+    description: 'Sonarqube login token'
+    required: false
+  SONAR_HOST_URL:
+    description: 'Sonarqube url'
+    required: false
+
     
   
 outputs:
