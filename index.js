@@ -45,7 +45,7 @@ try {
   const sq = core.getInput('sonarqube-required');
   let sonar=sq.toLocaleLowerCase().trim();
   if(sonar=="yes"){
-    exec('echo "dotnet tool install --global dotnet-sonarscanner && dotnet sonarscanner begin /d:sonar.host.url=http://40.87.111.97:8080 /o:NisargShah1410 /k:sampledotnetcore /d:sonar.cs.vstest.reportsPaths=**/*.trx /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml /d:sonar.login=${{ secrets.SONAR_TOKEN }} && dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"',
+    exec('echo "dotnet tool install --global dotnet-sonarscanner && dotnet sonarscanner begin /d:sonar.host.url=http://40.87.111.97:8080 /o:NisargShah1410 /k:sampledotnetcore /d:sonar.cs.vstest.reportsPaths=**/*.trx /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml /d:sonar.login=${{ secrets.SONAR_TOKEN }} && dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}""',
         (error, stdout, stderr) => {
             console.log(stdout);
             console.log(stderr);
