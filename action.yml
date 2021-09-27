@@ -16,6 +16,9 @@ inputs:
   file-path:
     description: 'Use this when using codecov to give path'
     required: false
+  sonarqube-required:
+    description: 'Give input yes or no for use of Sonarqube required or not'
+    required: false
     
   
 outputs:
