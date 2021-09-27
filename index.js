@@ -32,7 +32,7 @@ try {
             }
         });
   }else if(covr=="coverlet"){
-    exec('echo "dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov"',
+    exec('dotnet test MySampleWebAppTests1/MySampleWebAppTests1.csproj /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov',
         (error, stdout, stderr) => {
             console.log(stdout);
             console.log(stderr);
@@ -52,7 +52,7 @@ try {
   let sonar_url=su.toLocaleLowerCase().trim();
 
   if(sonar=="yes"){
-    exec(`dotnet tool install --global dotnet-sonarscanner && dotnet sonarscanner begin /d:sonar.host.url=${sonar_url} /o:NisargShah1410 /k:sampledotnetcore /d:sonar.cs.vstest.reportsPaths=**/*.trx /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml /d:sonar.login=${sonar_token} && dotnet sonarscanner end /d:sonar.login=${sonar_token}`,
+    exec(`dotnet tool install --global dotnet-sonarscanner && dotnet sonarscanner begin /d:sonar.host.url=${sonar_url} /o:NisargShah1410 /k:finaldotnetcore /d:sonar.cs.vstest.reportsPaths=**/*.trx /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml /d:sonar.login=${sonar_token} && dotnet sonarscanner end /d:sonar.login=${sonar_token}`,
         (error, stdout, stderr) => {
             console.log(stdout);
             console.log(stderr);
