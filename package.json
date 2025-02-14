@@ -19,6 +19,6 @@
   "homepage": "https://github.com/NisargShah1410/jsactiondemo#readme",
   "dependencies": {
     "@actions/core": "^1.5.0",
-    "@actions/github": "^5.0.0"
+    "@actions/github": "^6.0.0"
   }
 }
